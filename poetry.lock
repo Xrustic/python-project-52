@@ -408,17 +408,17 @@ typing_extensions = ">=3.10.0.0"
 
 [[package]]
 name = "django"
-version = "4.2.17"
+version = "5.1.4"
 description = "A high-level Python web framework that encourages rapid development and clean, pragmatic design."
 optional = false
-python-versions = ">=3.8"
+python-versions = ">=3.10"
 files = [
-    {file = "Django-4.2.17-py3-none-any.whl", hash = "sha256:3a93350214ba25f178d4045c0786c61573e7dbfa3c509b3551374f1e11ba8de0"},
-    {file = "Django-4.2.17.tar.gz", hash = "sha256:6b56d834cc94c8b21a8f4e775064896be3b4a4ca387f2612d4406a5927cd2fdc"},
+    {file = "Django-5.1.4-py3-none-any.whl", hash = "sha256:236e023f021f5ce7dee5779de7b286565fdea5f4ab86bae5338e3f7b69896cf0"},
+    {file = "Django-5.1.4.tar.gz", hash = "sha256:de450c09e91879fa5a307f696e57c851955c910a438a35e6b4c895e86bedc82a"},
 ]
 
 [package.dependencies]
-asgiref = ">=3.6.0,<4"
+asgiref = ">=3.8.1,<4"
 sqlparse = ">=0.3.1"
 tzdata = {version = "*", markers = "sys_platform == \"win32\""}
 
@@ -1044,13 +1044,13 @@ use-chardet-on-py3 = ["chardet (>=3.0.2,<6)"]
 
 [[package]]
 name = "rollbar"
-version = "1.1.0"
+version = "1.1.1"
 description = "Easy and powerful exception tracking with Rollbar. Send messages and exceptions with arbitrary context, get back aggregates, and debug production issues quickly."
 optional = false
 python-versions = ">=3.6"
 files = [
-    {file = "rollbar-1.1.0-py3-none-any.whl", hash = "sha256:a39634cdd53a8ae3ebdb850c0075da8fd88154bea356acee738b52aef79ec384"},
-    {file = "rollbar-1.1.0.tar.gz", hash = "sha256:0894302f7caf3d1f16c84ae3d609dc6385fcdba95ae78c9af1f4809a7dd44a89"},
+    {file = "rollbar-1.1.1-py3-none-any.whl", hash = "sha256:db751b4dd85dafcb576af2a8676a36787b952be9128837c68e50f70c3cf3d6c9"},
+    {file = "rollbar-1.1.1.tar.gz", hash = "sha256:037383fc1a8da288257dcda2acb26bb28691724e7a71a67973567c31d47a914a"},
 ]
 
 [package.dependencies]
@@ -1235,4 +1235,4 @@ brotli = ["brotli"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.10"
-content-hash = "91d7e58203c5b8a25c9bc5707ad9468284dce8d5686751e480601468e304e834"
+content-hash = "00700194013ab95d2d09b5e7316346efe81196654f17addfa3caf8be23a90485"
