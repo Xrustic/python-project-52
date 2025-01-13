@@ -10,8 +10,8 @@ from django.utils.translation import gettext_lazy as _
 #
 # # Инициализация Rollbar
 # rollbar.init(
-#     access_token=os.getenv("ROLLBAR_ACCESS_TOKEN"),  # Замените на ваш токен
-#     environment='production',          # Укажите окружение (например, production/staging/dev)
+#     access_token=os.getenv("ROLLBAR_ACCESS_TOKEN"),
+#     environment='production',
 # )
 #
 # # Пример обработки ошибки и отправки в Rollbar
