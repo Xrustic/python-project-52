@@ -11,8 +11,7 @@ class UserCreateForm(UserCreationForm):
     first_name = forms.CharField(label='Имя', required=True,
                                  widget=forms.TextInput(
                                      attrs={'class': 'form-control',
-                                            'placeholder': 'Имя'})
-                                 )
+                                            'placeholder': 'Имя'}))
     last_name = forms.CharField(label='Фамилия', required=True,
                                 widget=forms.TextInput(
                                     attrs={'class': 'form-control',
