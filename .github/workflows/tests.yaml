@@ -4,13 +4,6 @@ on:
   - push
   - pull_request
 
-env:
-  # we're specifying sqlite db URI to make tests run in-memory
-  DATABASE_URL: sqlite:///sqlite.db
-  DB_ENGINE: SQLite
-  SECRET_KEY: 1t-&v$8p_x+^+6t*7c+6!ki4z+50zj&jql3lo%9#4^)p58=mbi
-  DJANGO_SETTINGS_MODULE: task_manager.settings
-
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -25,16 +18,24 @@ jobs:
           python-version: ${{ matrix.python-version }}
       - name: Install dependencies
         run: |
-          pip install poetry
-          make install
+          python3 -m pip install --upgrade pip
+          pip install -r requirements.txt
       - name: Run linter
         run: |
           make lint
+      - name: Create migrations
+        run: |
+          python3 manage.py makemigrations
+      - name: Migrate
+        run: |
+          python3 manage.py migrate
       - name: Test & publish code coverage
-        uses: paambaati/codeclimate-action@v5.0.0
+        uses: paambaati/codeclimate-action@v3.2.0
         if: github.ref_name == 'main'
         env:
           CC_TEST_REPORTER_ID: ${{ secrets.CC_TEST_REPORTER_ID }}
+          DB_ENGINE: SQLite
+          SECRET_KEY: 1t-&v$8p_x+^+6t*7c+6!ki4z+50zj&jql3lo%9#4^)p58=mbi
         with:
           coverageCommand: make test-coverage
           debug: true
