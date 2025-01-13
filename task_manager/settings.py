@@ -80,7 +80,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'tz_detect.middleware.TimezoneMiddleware',
-    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
+    'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
 ]
 
 MESSAGE_TAGS = {
