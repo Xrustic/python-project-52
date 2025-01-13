@@ -5,6 +5,13 @@ from task_manager.users.forms import LoginUserForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
+from django.http import HttpResponse
+
+
+def index(request):
+    a = None
+    a.hello()
+    return HttpResponse("Hello, world. You're at the pollapp index.")
 
 
 class IndexView(TemplateView):
