@@ -47,6 +47,8 @@ htmlcov/
 .tox/
 .nox/
 .coverage
+.codeclimate.yaml
+.coveragerc
 .coverage.*
 .cache
 nosetests.xml
