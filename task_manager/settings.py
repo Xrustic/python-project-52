@@ -18,6 +18,7 @@ from dotenv import load_dotenv
 from django.utils.translation import gettext_lazy as _
 from django.contrib.messages import constants as messages
 from django.db.backends import postgresql
+import re
 
 load_dotenv()
 DATABASE_URL = os.getenv("DATABASE_URL")
@@ -80,7 +81,7 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
     'tz_detect.middleware.TimezoneMiddleware',
-    'task_manager.rollbar_middleware.CustomRollbarNotifierMiddleware',
+    'rollbar.contrib.django.middleware.RollbarNotifierMiddleware',
 ]
 
 MESSAGE_TAGS = {
@@ -182,14 +183,21 @@ STATIC_URL = '/static/'
 # This production code might break development mode, so we check whether we're
 # in DEBUG mode
 if not DEBUG:
-    # Tell Django to copy static assets into a path called `staticfiles` (this
-    # is specific to Render)
+    STORAGES = {
+        "staticfiles": {
+            "BACKEND": "whitenoise.storage.CompressedManifestStaticFilesStorage",
+        },
+    }
     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-    # Enable the WhiteNoise storage backend, which compresses static files to
-    # reduce disk use
-    # and renames the files with unique names for each version to support
-    # long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# if not DEBUG:
+#     # Tell Django to copy static assets into a path called `staticfiles` (this
+#     # is specific to Render)
+#     STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+#     # Enable the WhiteNoise storage backend, which compresses static files to
+#     # reduce disk use
+#     # and renames the files with unique names for each version to support
+#     # long-term caching
+#     STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
@@ -199,8 +207,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = 'index'
 
 ROLLBAR = {
-    'access_token': '667d40c4c51f46af8149dcda0b05d8c6',
+    'access_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),
+    'client_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),
     'environment': 'development' if DEBUG else 'production',
-    'code_version': '1.0',
-    'root': BASE_DIR,
+    'branch': 'master',
+    'root': '/home/runner/work/python-project-52/python-project-52',
 }

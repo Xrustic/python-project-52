@@ -5,13 +5,24 @@ from task_manager.users.forms import LoginUserForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-from django.http import HttpResponse
-
-
-def index(request):
-    a = None
-    a.hello()
-    return HttpResponse("Hello, world. You're at the pollapp index.")
+# import rollbar
+# import os
+#
+# # Инициализация Rollbar
+# rollbar.init(
+#     access_token=os.getenv("ROLLBAR_ACCESS_TOKEN"),  # Замените на ваш токен
+#     environment='production',          # Укажите окружение (например, production/staging/dev)
+# )
+#
+# # Пример обработки ошибки и отправки в Rollbar
+# try:
+#     result = 1 / 0  # Искусственная ошибка
+# except ZeroDivisionError as e:
+#     rollbar.report_exc_info()  # Сообщить об ошибке
+#     print("Ошибка отправлена в Rollbar!")
+#
+# # Пример отправки произвольного сообщения в Rollbar
+# rollbar.report_message('Тестовое сообщение', level='info')
 
 
 class IndexView(TemplateView):

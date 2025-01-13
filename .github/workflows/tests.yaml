@@ -1,11 +1,10 @@
-name: PyCI  # или что-то подобное
+name: PyCI
 
 on:
   - push
   - pull_request
 
 env:
-  # we're specifying sqlite db URI to make tests run in-memory
   DATABASE_URL: sqlite:///sqlite.db
   DB_ENGINE: SQLite
   SECRET_KEY: 1t-&v$8p_x+^+6t*7c+6!ki4z+50zj&jql3lo%9#4^)p58=mbi
