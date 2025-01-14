@@ -211,5 +211,5 @@ ROLLBAR = {
     'client_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),
     'environment': 'development' if DEBUG else 'production',
     'branch': 'master',
-    'root': '/home/runner/work/python-project-52/python-project-52',
+    'root': BASE_DIR,
 }
