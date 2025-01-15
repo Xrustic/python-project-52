@@ -6,6 +6,7 @@
 
 <a href="https://codeclimate.com/github/Xrustic/python-project-52/maintainability"><img src="https://api.codeclimate.com/v1/badges/6c282b3cb0a2c0ba8cb9/maintainability" /></a>
 
+[Проект на сайте Render.com](https://python-project-52-afgy.onrender.com)
 ## Описание
 
 [Task_manager](http://127.0.0.1:8000/) - это сайт, на котором вы сможете зарегистрироваться и создавать свои метки, задачи и статусы.
