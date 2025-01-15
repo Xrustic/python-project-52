@@ -210,6 +210,6 @@ ROLLBAR = {
     'access_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),
     'client_token': os.getenv("ROLLBAR_ACCESS_TOKEN"),
     'environment': 'development' if DEBUG else 'production',
-    'branch': 'master',
+    'branch': 'main',
     'root': BASE_DIR,
 }
