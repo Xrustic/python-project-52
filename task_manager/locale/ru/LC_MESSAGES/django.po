@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-16 14:38+0100\n"
+"POT-Creation-Date: 2025-01-16 18:34+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -114,8 +114,7 @@ msgstr "Задачи"
 msgid "Logout"
 msgstr "Выход"
 
-#: task_manager/templates/header.html:33 task_manager/templates/login.html:6
-#: task_manager/templates/login.html:10 task_manager/templates/login.html:15
+#: task_manager/templates/header.html:33 task_manager/templates/login.html:15
 msgid "Login"
 msgstr "Войти"
 
@@ -219,6 +218,10 @@ msgstr "Изменить"
 #: task_manager/templates/layout.html:12
 msgid "Hexlet Task Manager"
 msgstr "Менеджер задач Hexlet"
+
+#: task_manager/templates/login.html:6 task_manager/templates/login.html:10
+msgid "Entrance"
+msgstr "Вход"
 
 #: task_manager/templates/statuses/create.html:9
 msgid "Status creation"
