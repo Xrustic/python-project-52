@@ -50,7 +50,7 @@ class UsersViewTest(TestCase):
         response = self.client.post(self.user_create_url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.users.count(), 2)
-
+# update
     def test_anonymous_client_users_update_GET(self):
         response = self.client.get(self.user1_update_url)
         self.assertEqual(auth.get_user(self.client).is_authenticated, False)
@@ -66,19 +66,6 @@ class UsersViewTest(TestCase):
         })
         self.assertEqual(response.status_code, 302)
         self.assertEqual(self.users.count(), 2)
-
-    def test_anonymous_client_users_delete_GET(self):
-        response = self.client.get(self.user_delete_url, {
-            'pk': self.test_user.id,
-        })
-        self.assertEqual(response.status_code, 302)
-
-    def test_anonymous_client_users_delete_POST(self):
-        response = self.client.post(self.user_delete_url, {
-            'pk': self.test_user.id,
-        })
-        self.assertEqual(self.users.count(), 2)
-        self.assertEqual(response.status_code, 302)
 
     def test_auth_client_users_update_GET(self):
         self.client.force_login(self.test_user)
@@ -106,6 +93,19 @@ class UsersViewTest(TestCase):
     def test_auth_client_users_update_exist_data_POST(self):
         self.client.force_login(self.test_user)
         response = self.client.post(self.user1_update_url, kwargs=self.test_user2)
+        self.assertEqual(response.status_code, 302)
+#delete
+    def test_anonymous_client_users_delete_GET(self):
+        response = self.client.get(self.user_delete_url, {
+            'pk': self.test_user.id,
+        })
+        self.assertEqual(response.status_code, 302)
+
+    def test_anonymous_client_users_delete_POST(self):
+        response = self.client.post(self.user_delete_url, {
+            'pk': self.test_user.id,
+        })
+        self.assertEqual(self.users.count(), 2)
         self.assertEqual(response.status_code, 302)
 
     def test_auth_client_users_delete_GET(self):
