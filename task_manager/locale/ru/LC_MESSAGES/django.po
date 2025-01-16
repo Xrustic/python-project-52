@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-16 18:39+0100\n"
+"POT-Creation-Date: 2025-01-16 22:15+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -39,12 +39,6 @@ msgstr "Метка успешно удалена"
 #: task_manager/labels/views.py:57
 msgid "labels has been updated successfully."
 msgstr "Метка успешно изменена"
-
-#: task_manager/mixins.py:8
-msgid ""
-"You do not have permission to edit\n"
-"                                  another user"
-msgstr "У вас нет прав для изменения другого пользователя."
 
 #: task_manager/settings.py:169
 msgid "English"
@@ -304,27 +298,33 @@ msgstr "Полное имя"
 msgid "User update"
 msgstr "Изменение пользователя"
 
-#: task_manager/users/views.py:31
+#: task_manager/users/mixins.py:8
+msgid ""
+"You do not have permission to edit\n"
+"                                  another user"
+msgstr "У вас нет прав для изменения другого пользователя."
+
+#: task_manager/users/views.py:33
 msgid "User has been registered successfully."
 msgstr "Пользователь успешно зарегистрирован"
 
-#: task_manager/users/views.py:46
+#: task_manager/users/views.py:48
 msgid "You do not have permission to change another user."
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/users/views.py:55
+#: task_manager/users/views.py:57
 msgid "User has been updated successfully."
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:69
+#: task_manager/users/views.py:71
 msgid "Cannot delete user. User is associated with tasks."
 msgstr "Невозможно удалить пользователя, потому что он используется"
 
-#: task_manager/users/views.py:72
+#: task_manager/users/views.py:74
 msgid "You do not have permission to delete another user."
 msgstr "У вас нет прав, чтобы удалить другого пользователя."
 
-#: task_manager/users/views.py:76 task_manager/users/views.py:83
+#: task_manager/users/views.py:78 task_manager/users/views.py:85
 msgid "User has been deleted successfully."
 msgstr "Пользоатель успешно удален"
 

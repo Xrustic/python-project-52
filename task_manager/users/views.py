@@ -11,6 +11,7 @@ from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.contrib.auth.views import LogoutView
+from task_manager.users.mixins import UserCreatorOnlyMixin
 
 
 class UsersAbstractMixin:
@@ -33,11 +34,11 @@ class UserCreateView(UsersAbstractMixin, CreateView):
         return reverse_lazy('login')
 
 
-class UserUpdateView(LoginRequiredMixin, UpdateView, LogoutView):
+class UserUpdateView(UserCreatorOnlyMixin, UpdateView, LogoutView):
     model = get_user_model()
     form_class = UserUpdateForm
     login_url = '/login/'
-    success_url = reverse_lazy('index')
+    success_url = reverse_lazy('users')
     template_name = 'users/update.html'
 
     def get(self, request, pk):
