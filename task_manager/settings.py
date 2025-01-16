@@ -166,8 +166,8 @@ USE_I18N = True
 USE_TZ = True
 
 LANGUAGES = (
-    ('ru', _('Russian')),
     ('en', _('English')),
+    ('ru', _('Russian')),
 )
 
 LOCALE_PATHS = (
