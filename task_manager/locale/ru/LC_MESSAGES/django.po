@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-16 13:12+0100\n"
+"POT-Creation-Date: 2025-01-16 14:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -24,19 +24,19 @@ msgstr ""
 msgid "You are not authorized! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
-#: task_manager/labels/views.py:28
+#: task_manager/labels/views.py:29
 msgid "labels has been created successfully."
 msgstr "Метка успешно создана"
 
-#: task_manager/labels/views.py:41
+#: task_manager/labels/views.py:42
 msgid "Cannot delete labels because it is in use."
 msgstr "Невозможно удалить метку, потому что она используется"
 
-#: task_manager/labels/views.py:47
+#: task_manager/labels/views.py:48
 msgid "labels has been deleted successfully."
 msgstr "Метка успешно удалена"
 
-#: task_manager/labels/views.py:56
+#: task_manager/labels/views.py:57
 msgid "labels has been updated successfully."
 msgstr "Метка успешно изменена"
 
@@ -46,13 +46,13 @@ msgid ""
 "                                  another user"
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/settings.py:171
-msgid "Russian"
-msgstr "Русский"
-
-#: task_manager/settings.py:172
+#: task_manager/settings.py:169
 msgid "English"
 msgstr "Английский"
+
+#: task_manager/settings.py:170
+msgid "Russian"
+msgstr "Русский"
 
 #: task_manager/statuses/views.py:29
 msgid "Status has been created successfully."
