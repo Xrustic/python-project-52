@@ -6,6 +6,7 @@ from django.views.generic import ListView
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
+from django.shortcuts import redirect
 
 
 class LabelAbstractMixin(LoginRequireMixin):
@@ -33,6 +34,14 @@ class LabelDeleteView(LoginRequireMixin, DeleteView):
     model = Label
     login_url = "/login/"
     template_name = 'labels/delete.html'
+
+    def post(self, request, *args, **kwargs):
+        if self.get_object().tasks.exists():
+            messages.error(
+                self.request,
+                _('Cannot delete labels because it is in use.'))
+            return redirect('labels')
+        return super().post(request, *args, **kwargs)
 
     def get_success_url(self):
         messages.success(self.request,

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-12-18 18:04+0100\n"
+"POT-Creation-Date: 2025-01-16 13:12+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -28,11 +28,15 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 msgid "labels has been created successfully."
 msgstr "Метка успешно создана"
 
-#: task_manager/labels/views.py:39
+#: task_manager/labels/views.py:41
+msgid "Cannot delete labels because it is in use."
+msgstr "Невозможно удалить метку, потому что она используется"
+
+#: task_manager/labels/views.py:47
 msgid "labels has been deleted successfully."
 msgstr "Метка успешно удалена"
 
-#: task_manager/labels/views.py:48
+#: task_manager/labels/views.py:56
 msgid "labels has been updated successfully."
 msgstr "Метка успешно изменена"
 
@@ -42,13 +46,13 @@ msgid ""
 "                                  another user"
 msgstr "У вас нет прав для изменения другого пользователя."
 
-#: task_manager/settings.py:154
-msgid "English"
-msgstr "Английский"
-
-#: task_manager/settings.py:155
+#: task_manager/settings.py:171
 msgid "Russian"
 msgstr "Русский"
+
+#: task_manager/settings.py:172
+msgid "English"
+msgstr "Английский"
 
 #: task_manager/statuses/views.py:29
 msgid "Status has been created successfully."
@@ -310,7 +314,7 @@ msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:69
 msgid "Cannot delete user. User is associated with tasks."
-msgstr "Невозможно удалить статус, потому что он используется"
+msgstr "Невозможно удалить пользователя, потому что он используется"
 
 #: task_manager/users/views.py:72
 msgid "You do not have permission to delete another user."
@@ -320,10 +324,10 @@ msgstr "У вас нет прав, чтобы удалить другого по
 msgid "User has been deleted successfully."
 msgstr "Пользоатель успешно удален"
 
-#: task_manager/views.py:19
+#: task_manager/views.py:37
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/views.py:25
+#: task_manager/views.py:43
 msgid "You are logged out"
 msgstr "Вы разлогинены"
