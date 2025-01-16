@@ -30,10 +30,10 @@ class UserCreateForm(UserCreationForm):
                                            'placeholder': 'Пароль'}),
                                 help_text='Ваш пароль должен содержать как '
                                 'минимум 3 символа.')
-    password2 = forms.CharField(label='Повторите пароль', required=True,
+    password2 = forms.CharField(label='Подтверждение пароля', required=True,
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
-                                           'placeholder': 'Пароль'}),
+                                           'placeholder': 'Подтверждение пароля'}),
                                 help_text='Для подтверждения введите, '
                                 'пожалуйста, пароль ещё раз.')
 
