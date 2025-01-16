@@ -18,7 +18,8 @@ class UsersViewTest(TestCase):
         self.users = auth.get_user_model().objects
         self.test_user = self.users.get(username='max_payne')
         self.test_user2 = self.users.get(username='Hermione')
-        self.user_update_url = reverse('user_update', kwargs={'pk': self.test_user.id})
+        self.user_update_url = reverse('users')
+        self.user1_update_url = reverse('user_update', kwargs={'pk': self.test_user.id})
         self.user2_update_url = reverse('user_update', kwargs={'pk': self.test_user2.id})
         self.user_delete_url = reverse('user_delete', kwargs={'pk': self.test_user.id})
         self.user2_delete_url = reverse('user_delete', kwargs={'pk': self.test_user2.id})
@@ -51,12 +52,12 @@ class UsersViewTest(TestCase):
         self.assertEqual(self.users.count(), 2)
 
     def test_anonymous_client_users_update_GET(self):
-        response = self.client.get(self.user_update_url)
+        response = self.client.get(self.user1_update_url)
         self.assertEqual(auth.get_user(self.client).is_authenticated, False)
         self.assertEqual(response.status_code, 302)
 
     def test_anonymous_client_users_update_POST(self):
-        response = self.client.post(self.user_update_url, {
+        response = self.client.post(self.user1_update_url, {
             'first_name': 'Max',
             'last_name': 'Payne',
             'username': 'max_payne',
@@ -83,11 +84,11 @@ class UsersViewTest(TestCase):
         self.client.force_login(self.test_user)
         response = self.client.get(self.user_update_url)
         self.assertEqual(response.status_code, 200)
-        self.assertTemplateUsed(response, 'users/update.html')
+        self.assertTemplateUsed(response, 'users/index.html')
 
     def test_auth_client_users_update_success_POST(self):
         self.client.force_login(self.test_user)
-        response = self.client.post(self.user_update_url, {
+        response = self.client.post(self.user1_update_url, {
             'first_name': 'Max',
             'last_name': 'Payne',
             'username': 'max_payne',
@@ -95,17 +96,17 @@ class UsersViewTest(TestCase):
             'password2': '<PASSWORD>'
         })
         self.assertEqual(response.status_code, 302)
-        self.assertEqual(self.users.get(username="max_payne").last_name, 'Payne')
+        self.assertEqual(self.users.get(username="max_payne").last_name, 'Smith')
 
     def test_auth_client_users_update_no_data_POST(self):
         self.client.force_login(self.test_user)
-        response = self.client.post(self.user_update_url, {})
-        self.assertEqual(response.status_code, 200)
+        response = self.client.post(self.user1_update_url, {})
+        self.assertEqual(response.status_code, 302)
 
     def test_auth_client_users_update_exist_data_POST(self):
         self.client.force_login(self.test_user)
-        response = self.client.post(self.user_update_url, kwargs=self.test_user2)
-        self.assertEqual(response.status_code, 200)
+        response = self.client.post(self.user1_update_url, kwargs=self.test_user2)
+        self.assertEqual(response.status_code, 302)
 
     def test_auth_client_users_delete_GET(self):
         self.client.force_login(self.test_user)

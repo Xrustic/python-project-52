@@ -10,6 +10,7 @@ from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
+from django.contrib.auth.views import LogoutView
 
 
 class UsersAbstractMixin:
@@ -32,7 +33,7 @@ class UserCreateView(UsersAbstractMixin, CreateView):
         return reverse_lazy('login')
 
 
-class UserUpdateView(LoginRequiredMixin, UpdateView):
+class UserUpdateView(LoginRequiredMixin, UpdateView, LogoutView):
     model = get_user_model()
     form_class = UserUpdateForm
     login_url = '/login/'
@@ -53,7 +54,7 @@ class UserUpdateView(LoginRequiredMixin, UpdateView):
     def get_success_url(self):
         messages.success(self.request,
                          _('User has been updated successfully.'))
-        return reverse_lazy('index')
+        return reverse_lazy('users')
 
 
 class UserDeleteView(LoginRequiredMixin, DeleteView):
