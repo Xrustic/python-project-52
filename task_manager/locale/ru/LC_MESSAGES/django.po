@@ -117,7 +117,7 @@ msgstr "Выход"
 #: task_manager/templates/header.html:33 task_manager/templates/login.html:6
 #: task_manager/templates/login.html:10 task_manager/templates/login.html:15
 msgid "Login"
-msgstr "Вход"
+msgstr "Войти"
 
 #: task_manager/templates/header.html:36
 #: task_manager/templates/users/create.html:8
