@@ -50,6 +50,7 @@ class UsersViewTest(TestCase):
         response = self.client.post(self.user_create_url)
         self.assertEqual(response.status_code, 200)
         self.assertEqual(self.users.count(), 2)
+
 # update
     def test_anonymous_client_users_update_GET(self):
         response = self.client.get(self.user1_update_url)
@@ -94,7 +95,8 @@ class UsersViewTest(TestCase):
         self.client.force_login(self.test_user)
         response = self.client.post(self.user1_update_url, kwargs=self.test_user2)
         self.assertEqual(response.status_code, 302)
-#delete
+
+# delete
     def test_anonymous_client_users_delete_GET(self):
         response = self.client.get(self.user_delete_url, {
             'pk': self.test_user.id,
