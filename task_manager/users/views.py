@@ -48,7 +48,7 @@ class UserUpdateView(LoginRequireMixin, UpdateView):
                              ' change another user.'))
             return HttpResponseRedirect(reverse('users'))
         else:
-            form = UserCreateForm(instance=user)
+            form = UserUpdateForm(instance=user)
             return render(request, 'users/update.html', {'form': form})
 
     def get_success_url(self):
