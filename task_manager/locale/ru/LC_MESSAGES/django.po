@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-20 18:30+0100\n"
+"POT-Creation-Date: 2025-01-20 18:38+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -32,7 +32,7 @@ msgstr "Вы не авторизованы! Пожалуйста, выполни
 #: task_manager/templates/tasks/index.html:21 task_manager/users/forms.py:12
 #: task_manager/users/forms.py:15 task_manager/users/forms.py:45
 #: task_manager/users/forms.py:52 task_manager/users/forms.py:55
-#: task_manager/users/forms.py:82
+#: task_manager/users/forms.py:85
 msgid "Name"
 msgstr "Имя"
 
@@ -310,14 +310,14 @@ msgstr "Изменение пользователя"
 
 #: task_manager/users/forms.py:16 task_manager/users/forms.py:19
 #: task_manager/users/forms.py:46 task_manager/users/forms.py:56
-#: task_manager/users/forms.py:59 task_manager/users/forms.py:83
+#: task_manager/users/forms.py:59 task_manager/users/forms.py:86
 msgid "Surname"
 msgstr "Фамилия"
 
 #: task_manager/users/forms.py:20 task_manager/users/forms.py:24
 #: task_manager/users/forms.py:47 task_manager/users/forms.py:60
-#: task_manager/users/forms.py:64 task_manager/users/forms.py:84
-#: task_manager/users/forms.py:89 task_manager/users/forms.py:92
+#: task_manager/users/forms.py:64 task_manager/users/forms.py:87
+#: task_manager/users/forms.py:92 task_manager/users/forms.py:95
 msgid "User name"
 msgstr "Имя пользователя"
 
@@ -330,22 +330,22 @@ msgstr ""
 "+/-/_."
 
 #: task_manager/users/forms.py:28 task_manager/users/forms.py:31
-#: task_manager/users/forms.py:67 task_manager/users/forms.py:70
-#: task_manager/users/forms.py:75 task_manager/users/forms.py:93
-#: task_manager/users/forms.py:94
+#: task_manager/users/forms.py:68 task_manager/users/forms.py:71
+#: task_manager/users/forms.py:77 task_manager/users/forms.py:96
+#: task_manager/users/forms.py:97
 msgid "Password"
 msgstr "Пароль"
 
-#: task_manager/users/forms.py:32 task_manager/users/forms.py:71
+#: task_manager/users/forms.py:32 task_manager/users/forms.py:72
 msgid "Your password must contain at least 3 characters."
 msgstr "Ваш пароль должен содержать как минимум 3 символа."
 
 #: task_manager/users/forms.py:34 task_manager/users/forms.py:37
-#: task_manager/users/forms.py:72
+#: task_manager/users/forms.py:74
 msgid "Password confirmation"
 msgstr "Подтверждение пароля"
 
-#: task_manager/users/forms.py:38 task_manager/users/forms.py:76
+#: task_manager/users/forms.py:38 task_manager/users/forms.py:78
 msgid "To confirm, please enter your password again."
 msgstr "Для подтверждения введите, пожалуйста, пароль ещё раз."
 
