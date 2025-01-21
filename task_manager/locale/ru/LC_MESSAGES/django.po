@@ -374,7 +374,7 @@ msgstr "У вас нет прав, чтобы удалить другого по
 
 #: task_manager/users/views.py:106 task_manager/users/views.py:113
 msgid "User has been deleted successfully."
-msgstr "Пользоатель успешно удален"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/views.py:37
 msgid "You are logged in"
