@@ -366,7 +366,7 @@ msgstr "Пользователь успешно изменен"
 
 #: task_manager/users/views.py:71
 msgid "User deleted successfully"
-msgstr "Пользователь успешно изменен"
+msgstr "Пользователь успешно удален"
 
 #: task_manager/users/views.py:79
 msgid "User can't be deleted as long as they're involved in tasks"
