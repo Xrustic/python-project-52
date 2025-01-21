@@ -4,10 +4,10 @@ from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
+from django.db.models import ProtectedError
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from task_manager.users.forms import UserCreateForm
 from task_manager.view_mixins import IndexViewMixin
-from task_manager.access_mixins import LoginRequireMixin
 
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
@@ -62,8 +62,8 @@ class UserUpdateView(UserPermissionMixin,
 
 
 class UserDeleteView(UserPermissionMixin,
-                 SuccessMessageMixin,
-                 DeleteView):
+                     SuccessMessageMixin,
+                     DeleteView):
 
     model = User
     template_name = 'users/delete.html'

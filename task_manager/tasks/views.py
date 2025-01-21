@@ -5,9 +5,20 @@ from .filter import TaskFilter
 from django_filters.views import FilterView
 from django.urls import reverse_lazy
 from django.utils.translation import gettext_lazy as _
+from django.contrib.auth.mixins import LoginRequiredMixin, UserPassesTestMixin
+from django.contrib.messages.views import SuccessMessageMixin
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.contrib import messages
 from django.views.generic import DetailView
+from django.shortcuts import redirect
+
+
+class FlashedLoginRequiredMixin(LoginRequiredMixin):
+
+    def handle_no_permission(self):
+        messages.error(self.request,
+                       _("You are not authorized! Please log in."))
+        return super().handle_no_permission()
 
 
 class TaskAbstractMixin(LoginRequireMixin):
@@ -48,14 +59,25 @@ class TaskUpdateView(TaskAbstractMixin, UpdateView):
         return reverse_lazy('tasks')
 
 
-class TaskDeleteView(LoginRequireMixin, DeleteView):
+class TaskDeleteView(LoginRequireMixin,
+                     UserPassesTestMixin,
+                     SuccessMessageMixin, DeleteView):
     model = Task
     login_url = "/login/"
     template_name = 'tasks/delete.html'
+    success_message = _('Task deleted successfully')
+
+    def test_func(self):
+        return self.request.user == self.get_object().author
+
+    def handle_no_permission(self):
+        messages.error(self.request,
+                       _("Task can be deleted only by it's author"))
+        return redirect(reverse_lazy('tasks'))
 
     def get_success_url(self):
         messages.success(self.request,
-                         _('Tasks has been deleted successfully.'))
+                         _('Task deleted successfully'))
         return reverse_lazy('tasks')
 
 

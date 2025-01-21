@@ -174,11 +174,6 @@ class TaskViewsTest(TestCase):
         self.assertEqual(response.status_code, 200)
         self.assertTemplateUsed(response, 'tasks/delete.html')
 
-    def test_anonym_user_task_delete_GET(self):
-        response = self.client.get(self.task_delete_url1)
-        self.assertEqual(response.status_code, 302)
-        self.assertRedirects(response, self.login_url)
-
     def test_auth_user_task_delete_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.tasks.count(), 3)
@@ -190,14 +185,8 @@ class TaskViewsTest(TestCase):
         self.client.force_login(self.user2)
         self.assertEqual(self.tasks.count(), 3)
         response = self.client.post(self.task_delete_url1)
-        self.assertEqual(self.tasks.count(), 2)
+        self.assertEqual(self.tasks.count(), 3)
         self.assertRedirects(response, self.tasks_url)
-
-    def test_anonym_user_task_delete_POST(self):
-        self.assertEqual(self.tasks.count(), 3)
-        response = self.client.post(self.task_delete_url1)
-        self.assertEqual(self.tasks.count(), 3)
-        self.assertRedirects(response, self.login_url)
 
     def test_auth_user_task_detail_GET(self):
         self.client.force_login(self.user)

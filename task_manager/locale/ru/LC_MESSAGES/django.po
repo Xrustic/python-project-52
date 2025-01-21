@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 14:19+0100\n"
+"POT-Creation-Date: 2025-01-21 15:33+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,8 @@ msgstr ""
 "n%10<=4 && (n%100<12 || n%100>14) ? 1 : n%10==0 || (n%10>=5 && n%10<=9) || "
 "(n%100>=11 && n%100<=14)? 2 : 3);\n"
 
-#: task_manager/access_mixins.py:15 task_manager/users/views.py:29
+#: task_manager/access_mixins.py:15 task_manager/tasks/views.py:20
+#: task_manager/users/views.py:29
 msgid "You are not authorized! Please log in."
 msgstr "Вы не авторизованы! Пожалуйста, выполните вход."
 
@@ -95,17 +96,21 @@ msgstr "Статус"
 msgid "Labels"
 msgstr "Метки"
 
-#: task_manager/tasks/views.py:38
+#: task_manager/tasks/views.py:49
 msgid "Tasks has been created successfully."
 msgstr "Задача успешно создана"
 
-#: task_manager/tasks/views.py:47
+#: task_manager/tasks/views.py:58
 msgid "Tasks has been updated successfully."
 msgstr "Задача успешно изменена"
 
-#: task_manager/tasks/views.py:58
-msgid "Tasks has been deleted successfully."
+#: task_manager/tasks/views.py:68 task_manager/tasks/views.py:80
+msgid "Task deleted successfully"
 msgstr "Задача успешно удалена"
+
+#: task_manager/tasks/views.py:75
+msgid "Task can be deleted only by it's author"
+msgstr "Задачу может удалить только ее автор"
 
 #: task_manager/templates/footer.html:4
 msgid "Hexlet"
@@ -379,6 +384,9 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:43
 msgid "You are logged out"
 msgstr "Вы разлогинены"
+
+#~ msgid "Tasks has been deleted successfully."
+#~ msgstr "Задача успешно удалена"
 
 #~ msgid "Cannot delete user. User is associated with tasks."
 #~ msgstr "Невозможно удалить пользователя, потому что он используется"
