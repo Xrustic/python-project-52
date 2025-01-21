@@ -7,6 +7,21 @@ from django.contrib.auth.forms import (
 )
 from django.utils.translation import gettext_lazy as _
 
+from django.contrib.auth.models import User
+
+
+class CustomUserCreationForm(UserCreationForm):
+
+    class Meta:
+        model = User
+        fields = ['first_name', 'last_name', 'username']
+
+
+class CustomUserChangeForm(CustomUserCreationForm):
+
+    def clean_username(self):
+        return self.cleaned_data.get("username")
+
 
 class UserCreateForm(UserCreationForm):
     first_name = forms.CharField(label=_('Name'), required=True,
@@ -69,14 +84,14 @@ class UserUpdateForm(UserChangeForm):
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
                                            'placeholder': _('Password')}),
-                                help_text=_('Your password must contain at least 3 '
-                                            'characters.'))
+                                help_text=_('Your password must contain at least '
+                                            '3 characters.'))
     password2 = forms.CharField(label=_('Password confirmation'), required=True,
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
-                                           'placeholder': _('Password')}),
-                                help_text=_('To confirm, please enter your password '
-                                            'again.'))
+                                           'placeholder': _('Password confirmation')}),
+                                help_text=_('To confirm, please enter your '
+                                            'password again.'))
 
     class Meta:
         model = get_user_model()
