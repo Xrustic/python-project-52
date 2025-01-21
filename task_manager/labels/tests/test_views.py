@@ -49,7 +49,8 @@ class LabelsViewsTest(TestCase):
     def test_auth_user_label_create_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.labels.count(), 2)
-        response = self.client.post(self.label_create_url, {"name": "new_label1"})
+        response = self.client.post(self.label_create_url,
+                                    {"name": "new_label1"})
         self.assertEqual(self.labels.get(name='new_label1').name, 'new_label1')
         self.assertEqual(self.labels.count(), 3)
         self.assertRedirects(response, self.labels_url)
@@ -68,7 +69,8 @@ class LabelsViewsTest(TestCase):
 
     def test_anonym_user_label_create_POST(self):
         self.assertEqual(self.labels.count(), 2)
-        response = self.client.post(self.label_create_url, {"name": "new_status1"})
+        response = self.client.post(self.label_create_url,
+                                    {"name": "new_status1"})
         self.assertEqual(self.labels.count(), 2)
         self.assertRedirects(response, self.login_url)
 
@@ -85,7 +87,8 @@ class LabelsViewsTest(TestCase):
     def test_auth_user_label_update_success_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.labels.count(), 2)
-        response = self.client.post(self.label_update_url1, {"name": "updated1"})
+        response = self.client.post(self.label_update_url1,
+                                    {"name": "updated1"})
         self.assertEqual(self.labels.count(), 2)
         self.assertEqual(self.labels.get(name="updated1").name, "updated1")
         self.assertRedirects(response, self.labels_url)
@@ -98,7 +101,8 @@ class LabelsViewsTest(TestCase):
 
     def test_anonym_user_label_update_POST(self):
         self.assertEqual(self.labels.count(), 2)
-        response = self.client.post(self.label_update_url1, {"name": "updated1"})
+        response = self.client.post(self.label_update_url1,
+                                    {"name": "updated1"})
         self.assertEqual(self.labels.filter(name="updated1").count(), 0)
         self.assertEqual(self.labels.count(), 2)
         self.assertRedirects(response, self.login_url)
@@ -107,12 +111,14 @@ class LabelsViewsTest(TestCase):
         self.client.force_login(self.user)
         self.client.post(self.label_create_url, {"name": "created1"})
         new_label = self.labels.get(name="created1")
-        self.label_update_url3 = reverse('labels_update', kwargs={'pk': new_label.pk})
+        self.label_update_url3 = reverse('labels_update',
+                                         kwargs={'pk': new_label.pk})
         self.assertEqual(self.labels.filter(name="created1").count(), 1)
         self.client.logout()
         self.assertEqual(auth.get_user(self.client).is_authenticated, False)
         self.client.force_login(self.user2)
-        response = self.client.post(self.label_update_url3, {"name": "updated2"})
+        response = self.client.post(self.label_update_url3,
+                                    {"name": "updated2"})
         self.assertEqual(self.labels.get(name="updated2").name, 'updated2')
         self.assertEqual(self.labels.filter(name='created1').count(), 0)
         self.assertRedirects(response, self.labels_url)

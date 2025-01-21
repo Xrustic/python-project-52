@@ -61,8 +61,10 @@ class StatusViewsTest(TestCase):
     def test_auth_user_status_create_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.statuses.count(), 2)
-        response = self.client.post(self.status_create_url, {"name": "new_status1"})
-        self.assertEqual(self.statuses.get(name='new_status1').name, 'new_status1')
+        response = self.client.post(self.status_create_url,
+                                    {"name": "new_status1"})
+        self.assertEqual(self.statuses.get(name='new_status1').name,
+                         'new_status1')
         self.assertEqual(self.statuses.count(), 3)
         self.assertRedirects(response, self.statuses_url)
 
@@ -75,12 +77,14 @@ class StatusViewsTest(TestCase):
     def test_auth_user_status_create_exist_data_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.statuses.count(), 2)
-        response = self.client.post(self.status_create_url, {"name": "Finished"})
+        response = self.client.post(self.status_create_url,
+                                    {"name": "Finished"})
         self.assertEqual(response.status_code, 302)
 
     def test_anonym_user_status_create_POST(self):
         self.assertEqual(self.statuses.count(), 2)
-        response = self.client.post(self.status_create_url, {"name": "new_status1"})
+        response = self.client.post(self.status_create_url,
+                                    {"name": "new_status1"})
         self.assertEqual(self.statuses.count(), 2)
         self.assertRedirects(response, self.login_url)
 
@@ -97,7 +101,8 @@ class StatusViewsTest(TestCase):
     def test_auth_user_status_update_success_POST(self):
         self.client.force_login(self.user)
         self.assertEqual(self.statuses.count(), 2)
-        response = self.client.post(self.status_update_url1, {"name": "updated1"})
+        response = self.client.post(self.status_update_url1,
+                                    {"name": "updated1"})
         self.assertEqual(self.statuses.count(), 2)
         self.assertEqual(self.statuses.get(name="updated1").name, "updated1")
         self.assertRedirects(response, self.statuses_url)
@@ -105,12 +110,14 @@ class StatusViewsTest(TestCase):
     def test_auth_user_status_update_fail_POST(self):
         self.client.force_login(self.user)
         response = self.client.post(self.status_update_url1, {"name": ""})
-        self.assertEqual(self.statuses.get(name="In progress").name, "In progress")
+        self.assertEqual(self.statuses.get(name="In progress").name,
+                         "In progress")
         self.assertEqual(response.status_code, 200)
 
     def test_anonym_user_status_update_POST(self):
         self.assertEqual(self.statuses.count(), 2)
-        response = self.client.post(self.status_update_url1, {"name": "updated1"})
+        response = self.client.post(self.status_update_url1,
+                                    {"name": "updated1"})
         self.assertEqual(self.statuses.filter(name="updated1").count(), 0)
         self.assertEqual(self.statuses.count(), 2)
         self.assertRedirects(response, self.login_url)
@@ -119,12 +126,14 @@ class StatusViewsTest(TestCase):
         self.client.force_login(self.user)
         self.client.post(self.status_create_url, {"name": "created1"})
         new_status = self.statuses.get(name="created1")
-        self.status_update_url3 = reverse('status_update', kwargs={'pk': new_status.pk})
+        self.status_update_url3 = reverse('status_update',
+                                          kwargs={'pk': new_status.pk})
         self.assertEqual(self.statuses.filter(name="created1").count(), 1)
         self.client.logout()
         self.assertEqual(auth.get_user(self.client).is_authenticated, False)
         self.client.force_login(self.user2)
-        response = self.client.post(self.status_update_url3, {"name": "updated2"})
+        response = self.client.post(self.status_update_url3,
+                                    {"name": "updated2"})
         self.assertEqual(self.statuses.get(name="updated2").name, 'updated2')
         self.assertEqual(self.statuses.filter(name='created1').count(), 0)
         self.assertRedirects(response, self.statuses_url)

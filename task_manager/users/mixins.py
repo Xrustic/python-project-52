@@ -5,7 +5,8 @@ from django.utils.translation import gettext_lazy as _
 
 class UserCreatorOnlyMixin(LimitedPermissionsMixin):
     redirect_url = reverse_lazy('users')
-    permission_denied_message = _("You do not have permission to edit another user")
+    permission_denied_message = _("You do not have permission "
+                                  "to edit another user")
     have_permission = False
 
     def dispatch(self, request, *args, **kwargs):

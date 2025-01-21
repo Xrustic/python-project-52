@@ -40,16 +40,18 @@ class UserCreateForm(UserCreationForm):
                                help_text=_('Required field. No more than 150 '
                                            'characters. Only letters, '
                                            'numbers and symbols @/./+/-/_.'))
-    password1 = forms.CharField(label=_('Password'), min_length=3, required=True,
+    password1 = forms.CharField(label=_('Password'), min_length=3,
+                                required=True,
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
                                            'placeholder': _('Password')}),
-                                help_text=_('Your password must contain at least '
-                                            '3 characters.'))
+                                help_text=_('Your password must contain at '
+                                            'least 3 characters.'))
     password2 = forms.CharField(label=_('Password confirmation'), required=True,
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
-                                           'placeholder': _('Password confirmation')}),
+                                           'placeholder':
+                                               _('Password confirmation')}),
                                 help_text=_('To confirm, please enter your '
                                             'password again.'))
 
@@ -77,19 +79,21 @@ class UserUpdateForm(UserChangeForm):
                                widget=forms.TextInput(
                                    attrs={'class': 'form-control',
                                           'placeholder': _('User name')}),
-                               help_text=_('Required field. No more than 150 characters. '
-                                           'Only letters, numbers and symbols '
-                                           '@/./+/-/_.'))
-    password1 = forms.CharField(label=_('Password'), min_length=3, required=True,
+                               help_text=_('Required field. No more than 150 '
+                                           'characters. Only letters, numbers '
+                                           'and symbols @/./+/-/_.'))
+    password1 = forms.CharField(label=_('Password'), min_length=3,
+                                required=True,
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
                                            'placeholder': _('Password')}),
-                                help_text=_('Your password must contain at least '
-                                            '3 characters.'))
+                                help_text=_('Your password must contain at '
+                                            'least 3 characters.'))
     password2 = forms.CharField(label=_('Password confirmation'), required=True,
                                 widget=forms.PasswordInput(
                                     attrs={'class': 'form-control',
-                                           'placeholder': _('Password confirmation')}),
+                                           'placeholder':
+                                               _('Password confirmation')}),
                                 help_text=_('To confirm, please enter your '
                                             'password again.'))
 
