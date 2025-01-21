@@ -1,17 +1,12 @@
 from django.contrib.auth import get_user_model
-# from django.shortcuts import render
 from django.urls import reverse_lazy
-# , reverse)
-# from django.http import HttpResponseRedirect
 from django.utils.translation import gettext_lazy as _
 from django.contrib import messages
 from django.contrib.auth.models import User
 from django.shortcuts import redirect
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from task_manager.users.forms import UserCreateForm
-# , UserUpdateForm)
 from task_manager.view_mixins import IndexViewMixin
-# , UpdateViewMixin)
 from task_manager.access_mixins import LoginRequireMixin
 
 from django.contrib.auth.mixins import UserPassesTestMixin
@@ -64,29 +59,6 @@ class UserUpdateView(UserPermissionMixin,
     template_name = 'users/update.html'
     success_url = reverse_lazy('users')
     success_message = _('User updated successfully')
-# class UserUpdateView(LoginRequireMixin, UsersAbstractMixin,
-# UpdateViewMixin, UpdateView):
-#     model = get_user_model()
-#     form_class = UserUpdateForm
-#     login_url = '/login/'
-#     success_url = reverse_lazy('users')
-#     template_name = 'users/update.html'
-#
-#     def get(self, request, pk):
-#         user = User.objects.get(id=pk)
-#         if pk != self.request.user.id:
-#             messages.error(request,
-#                            _('You do not have permission to'
-#                              ' change another user.'))
-#             return HttpResponseRedirect(reverse('users'))
-#         else:
-#             form = UserUpdateForm(instance=user)
-#             return render(request, 'users/update.html', {'form': form})
-#
-#     def get_success_url(self):
-#         messages.success(self.request,
-#                          _('User has been updated successfully.'))
-#         return reverse_lazy('users')
 
 
 class UserDeleteView(LoginRequireMixin, DeleteView):
@@ -107,11 +79,11 @@ class UserDeleteView(LoginRequireMixin, DeleteView):
             user.delete()
             messages.success(request, _(
                 'User has been deleted successfully.'))
-            return redirect('index')
+            return redirect('users')
 
         return redirect('users')
 
     def get_success_url(self):
         messages.success(self.request,
                          _('User has been deleted successfully.'))
-        return reverse_lazy('index')
+        return reverse_lazy('users')
