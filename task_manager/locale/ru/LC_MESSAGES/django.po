@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 13:56+0100\n"
+"POT-Creation-Date: 2025-01-21 14:19+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -364,17 +364,13 @@ msgstr "Пользователь успешно зарегистрирован"
 msgid "User updated successfully"
 msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:74
-msgid "Cannot delete user. User is associated with tasks."
-msgstr "Невозможно удалить пользователя, потому что он используется"
+#: task_manager/users/views.py:71
+msgid "User deleted successfully"
+msgstr "Пользователь успешно изменен"
 
-#: task_manager/users/views.py:77
-msgid "You do not have permission to delete another user."
-msgstr "У вас нет прав, чтобы удалить другого пользователя."
-
-#: task_manager/users/views.py:81 task_manager/users/views.py:88
-msgid "User has been deleted successfully."
-msgstr "Пользователь успешно удален"
+#: task_manager/users/views.py:79
+msgid "User can't be deleted as long as they're involved in tasks"
+msgstr ""
 
 #: task_manager/views.py:37
 msgid "You are logged in"
@@ -383,6 +379,15 @@ msgstr "Вы залогинены"
 #: task_manager/views.py:43
 msgid "You are logged out"
 msgstr "Вы разлогинены"
+
+#~ msgid "Cannot delete user. User is associated with tasks."
+#~ msgstr "Невозможно удалить пользователя, потому что он используется"
+
+#~ msgid "You do not have permission to delete another user."
+#~ msgstr "У вас нет прав, чтобы удалить другого пользователя."
+
+#~ msgid "User has been deleted successfully."
+#~ msgstr "Пользователь успешно удален"
 
 #~ msgid "Label"
 #~ msgstr "Метка"

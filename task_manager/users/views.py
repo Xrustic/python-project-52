@@ -61,29 +61,20 @@ class UserUpdateView(UserPermissionMixin,
     success_message = _('User updated successfully')
 
 
-class UserDeleteView(LoginRequireMixin, DeleteView):
-    model = get_user_model()
-    login_url = '/login/'
+class UserDeleteView(UserPermissionMixin,
+                 SuccessMessageMixin,
+                 DeleteView):
+
+    model = User
     template_name = 'users/delete.html'
+    success_url = reverse_lazy('users')
+    success_message = _('User deleted successfully')
 
-    def post(self, request, pk):
-        user = self.get_object()
-
-        if user.tasks_author.exists() or user.tasks_executor.exists():
-            messages.error(request, _(
-                'Cannot delete user. User is associated with tasks.'))
-        elif pk != self.request.user.id:
-            messages.error(request, _(
-                'You do not have permission to delete another user.'))
-        else:
-            user.delete()
-            messages.success(request, _(
-                'User has been deleted successfully.'))
-            return redirect('users')
-
-        return redirect('users')
-
-    def get_success_url(self):
-        messages.success(self.request,
-                         _('User has been deleted successfully.'))
-        return reverse_lazy('users')
+    def post(self, request, *args, **kwargs):
+        obj = self.get_object()
+        try:
+            obj.delete()
+            messages.success(self.request, self.success_message)
+        except ProtectedError:
+            messages.error(self.request, _("User can't be deleted as long as they're involved in tasks")) # noqa
+        return redirect(self.success_url)
