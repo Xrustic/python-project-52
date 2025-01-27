@@ -5,24 +5,6 @@ from task_manager.users.forms import LoginUserForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.contrib import messages
 from django.utils.translation import gettext_lazy as _
-# import rollbar
-# import os
-#
-# # Инициализация Rollbar
-# rollbar.init(
-#     access_token=os.getenv("ROLLBAR_ACCESS_TOKEN"),
-#     environment='production',
-# )
-#
-# # Пример обработки ошибки и отправки в Rollbar
-# try:
-#     result = 1 / 0  # Искусственная ошибка
-# except ZeroDivisionError as e:
-#     rollbar.report_exc_info()  # Сообщить об ошибке
-#     print("Ошибка отправлена в Rollbar!")
-#
-# # Пример отправки произвольного сообщения в Rollbar
-# rollbar.report_message('Тестовое сообщение', level='info')
 
 
 class IndexView(TemplateView):

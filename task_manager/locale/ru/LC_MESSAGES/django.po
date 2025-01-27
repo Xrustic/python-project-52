@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-21 16:58+0100\n"
+"POT-Creation-Date: 2025-01-27 18:43+0100\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -77,19 +77,29 @@ msgstr "Статус успешно удален"
 msgid "Cannot delete status because it is in use."
 msgstr "Невозможно удалить статус, потому что он используется"
 
-#: task_manager/tasks/forms.py:15 task_manager/templates/tasks/detail.html:24
+#: task_manager/tasks/filter.py:18 task_manager/tasks/forms.py:15
+#: task_manager/templates/tasks/detail.html:24
 #: task_manager/templates/tasks/index.html:24
 msgid "Executor"
 msgstr "Исполнитель"
 
-#: task_manager/tasks/forms.py:28 task_manager/tasks/models.py:15
-msgid "Description"
-msgstr "Описание"
+#: task_manager/tasks/filter.py:25
+msgid "Label"
+msgstr "Метка"
 
-#: task_manager/tasks/models.py:21 task_manager/templates/tasks/detail.html:28
+#: task_manager/tasks/filter.py:32 task_manager/tasks/models.py:21
+#: task_manager/templates/tasks/detail.html:28
 #: task_manager/templates/tasks/index.html:22
 msgid "Status"
 msgstr "Статус"
+
+#: task_manager/tasks/filter.py:40
+msgid "Only your tasks"
+msgstr "Только свои задачи"
+
+#: task_manager/tasks/forms.py:28 task_manager/tasks/models.py:15
+msgid "Description"
+msgstr "Описание"
 
 #: task_manager/tasks/models.py:28 task_manager/templates/header.html:20
 #: task_manager/templates/labels/index.html:5
@@ -377,11 +387,11 @@ msgstr "Пользователь успешно удален"
 msgid "User can't be deleted as long as they're involved in tasks"
 msgstr ""
 
-#: task_manager/views.py:37
+#: task_manager/views.py:19
 msgid "You are logged in"
 msgstr "Вы залогинены"
 
-#: task_manager/views.py:43
+#: task_manager/views.py:25
 msgid "You are logged out"
 msgstr "Вы разлогинены"
 
@@ -396,9 +406,6 @@ msgstr "Вы разлогинены"
 
 #~ msgid "User has been deleted successfully."
 #~ msgstr "Пользователь успешно удален"
-
-#~ msgid "Label"
-#~ msgstr "Метка"
 
 #~ msgid "Label:"
 #~ msgstr "Метка:"

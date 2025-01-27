@@ -8,7 +8,6 @@ from django.db.models import ProtectedError
 from django.views.generic.edit import CreateView, DeleteView, UpdateView
 from task_manager.users.forms import UserCreateForm
 from task_manager.view_mixins import IndexViewMixin
-
 from django.contrib.auth.mixins import UserPassesTestMixin
 from django.contrib.messages.views import SuccessMessageMixin
 from . import forms

@@ -18,7 +18,6 @@ from django.urls import path, include
 from task_manager import views
 
 urlpatterns = [
-    # path('tz_detect/', include('tz_detect.urls')),
     path('', views.IndexView.as_view(), name='index'),
     path('admin/', admin.site.urls),
     path("i18n/", include("django.conf.urls.i18n")),
